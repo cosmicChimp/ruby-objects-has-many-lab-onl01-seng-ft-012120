@@ -14,8 +14,18 @@ class Author
     @@post_count += 1 
   end
   
-  def songs
-    Song.all.select {|song| song.artist == self}
+  def add_post_by_title(title)
+    post = Post.new(title)
+    add_post(post)
+    @@post_counter += 1
+  end
+  
+  def posts
+    Post.all.select {|song| song.author == self}
+  end
+  
+  def post_count
+    @@post_count
   end
   
 end
